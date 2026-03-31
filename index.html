@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoldTrack - Gold Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>GoldTrack</h2>
+        <p>Management System</p>
+      </div>
+
+      <nav>
+        <a href="#dashboard" class="nav-link active">Dashboard</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#customers" class="nav-link">Customers</a>
+        <a href="#sales" class="nav-link">Sales</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Gold Management Dashboard</h1>
+          <p>Manage gold items, customers, and sales easily</p>
+        </div>
+        <button class="gold-btn">Admin Panel</button>
+      </header>
+
+      <!-- Dashboard -->
+      <section id="dashboard" class="section">
+        <div class="cards">
+          <div class="card">
+            <h3>Total Products</h3>
+            <p id="totalProducts">0</p>
+          </div>
+          <div class="card">
+            <h3>Total Customers</h3>
+            <p id="totalCustomers">0</p>
+          </div>
+          <div class="card">
+            <h3>Total Sales</h3>
+            <p id="totalSales">0</p>
+          </div>
+          <div class="card">
+            <h3>Total Revenue</h3>
+            <p id="totalRevenue">Rs. 0</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section id="products" class="section grid-2">
+        <div class="panel">
+          <h2>Add Gold Product</h2>
+          <form id="productForm">
+            <input type="text" id="productName" placeholder="Product Name" required />
+            
+            <select id="productCategory" required>
+              <option value="">Select Category</option>
+              <option value="Ring">Ring</option>
+              <option value="Chain">Chain</option>
+              <option value="Bangle">Bangle</option>
+              <option value="Coin">Coin</option>
+              <option value="Bracelet">Bracelet</option>
+              <option value="Necklace">Necklace</option>
+            </select>
+
+            <select id="productPurity" required>
+              <option value="">Select Purity</option>
+              <option value="18K">18K</option>
+              <option value="22K">22K</option>
+              <option value="24K">24K</option>
+            </select>
+
+            <input type="number" id="productWeight" placeholder="Weight (grams)" required />
+            <input type="number" id="pricePerGram" placeholder="Price Per Gram" required />
+            <input type="number" id="makingCharges" placeholder="Making Charges" required />
+            <input type="number" id="stockQuantity" placeholder="Stock Quantity" required />
+
+            <button type="submit" class="gold-btn full-btn">Add Product</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Gold Products</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Purity</th>
+                  <th>Weight</th>
+                  <th>Stock</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody id="productTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customers -->
+      <section id="customers" class="section grid-2">
+        <div class="panel">
+          <h2>Add Customer</h2>
+          <form id="customerForm">
+            <input type="text" id="customerName" placeholder="Customer Name" required />
+            <input type="text" id="customerPhone" placeholder="Phone Number" required />
+            <input type="text" id="customerAddress" placeholder="Address" required />
+            <button type="submit" class="gold-btn full-btn">Add Customer</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Customer List</h2>
+          <ul id="customerList" class="customer-list"></ul>
+        </div>
+      </section>
+
+      <!-- Sales -->
+      <section id="sales" class="section grid-2">
+        <div class="panel">
+          <h2>Create Sale</h2>
+          <form id="saleForm">
+            <select id="saleCustomer" required>
+              <option value="">Select Customer</option>
+            </select>
+
+            <select id="saleProduct" required>
+              <option value="">Select Product</option>
+            </select>
+
+            <input type="number" id="saleQuantity" placeholder="Quantity" required min="1" />
+            <input type="text" id="saleTotal" placeholder="Total Amount" readonly />
+
+            <button type="submit" class="gold-btn full-btn">Record Sale</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Sales History</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Product</th>
+                  <th>Qty</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="salesTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="code.js"></script>
+</body>
+</html>
